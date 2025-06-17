@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio - Jean Almeida</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header id="header">
+        <nav class="navbar" aria-label="Navegação principal">
+            <ul class="nav-list">
+                <li><a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> Sobre</a></li>
+                <li><a href="#projects" class="nav-link"><i class="fa-solid fa-code"></i> Projetos</a></li>
+                <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main id="main-content">
+        <section id="about" class="section about-section" aria-labelledby="about-title">
+            <header>
+                <h1 id="about-title" class="section-title">Jean Almeida</h1>
+            </header>
+            <img src="profile.webp" alt="imagem de Jean Almeida" class="profile-image" />
+            <p class="section-description">
+                Desenvolvedor web, 23 anos. Tenho experiência em HTML, CSS, JavaScript entre
+                outras tecnologias.
+                Cursos concluidos:
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Curso</th>
+                        <th>Instituição</th>
+                        <th>Ano</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lógica de Programação</td>
+                        <td>Curso em Video (Gustavo Guanabara)</td>
+                        <td>2023</td>
+                    </tr>
+                    <tr>
+                        <td>Trilha Full Stack JS</td>
+                        <td>OneBitCode</td>
+                        <td>2024</td>
+                    </tr>
+                    <tr>
+                        <td>Design De Interface Web</td>
+                        <td>SENAI</td>
+                        <td>2025</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="projects" class="section projects-section" aria-labelledby="projects-title">
+            <header>
+                <h2 id="projects-title" class="section-title">Projetos</h2>
+            </header>
+            <div class="projects-list">
+                <article class="project-card">
+                    <header>
+                        <h3 class="project-title"><i class="fa-solid fa-laptop-code"></i> Dashboard Para Gerenciamento Financeiro</h3>
+                    </header>
+                    <img src="projeto1.png" alt="projeto 1" class="project-image" />
+                    <p class="project-description">Tenha em mãos todos os seus gastos de forma visivel e mais detalhado!</p>
+                </article>
+                <article class="project-card">
+                    <header>
+                        <h3 class="project-title"><i class="fa-solid fa-laptop-code"></i> Portifólio Pessoal</h3>
+                    </header>
+                    <img src="projeto2.png" alt="projeto 2" class="project-image" />
+                    <p class="project-description">Um portfólio pessoal para mostrar minhas habilidades e projetos.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer id="contact" class="footer" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="footer-title">Contato:</h2>
+        <form action="#" class="contact-form">
+            <div class="form-group">
+                <div class="input-icon">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="name" name="name" placeholder="Seu Nome" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="email" name="email" placeholder="Seu E-mail" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+            <div class="input-icon textarea-icon">
+                <i class="fa-solid fa-comment-dots"></i>
+                <textarea id="message" name="message" rows="4" required placeholder="Escreva sua mensagem..."></textarea>
+            </div>
+            </div>
+
+
+            <button type="submit" class="form-button">
+                <i class="fa-solid fa-paper-plane"></i> Enviar
+            </button>
+        </form>
+
+        <p class="social-media"> Minhas redes sociais abaixo:</p>
+        <ul class="contact-list">
+            <li>
+                <a href="https://github.com/jeandevzinweb" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github" style="font-size:24px; vertical-align:middle;"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://instagram.com/jean_almeidaa7" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram" style="font-size:24px; vertical-align:middle;"></i>
+                </a>
+            </li>
+        </ul>
+        <small>
+            &copy; 2025 <a href="#header">Jean Almeida</a> - All Rights Reserved.
+        </small>
+    </footer>
+    <a href="#header" class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+</body>
+
+</html>
