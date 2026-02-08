@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="config.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -35,7 +36,7 @@
                 outras tecnologias.
                 Cursos concluidos:
             </p>
-            <table>
+            <table id="courses-table">
                 <thead>
                     <tr>
                         <th>Curso</th>
@@ -43,22 +44,8 @@
                         <th>Ano</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Lógica de Programação</td>
-                        <td>Curso em Video (Gustavo Guanabara)</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td>Trilha Full Stack JS</td>
-                        <td>OneBitCode</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>Design De Interface Web</td>
-                        <td>SENAI</td>
-                        <td>2025</td>
-                    </tr>
+                <tbody id="courses-list">
+                    <!-- Gerado dinamicamente -->
                 </tbody>
             </table>
         </section>
@@ -67,57 +54,17 @@
             <header>
                 <h2 id="projects-title" class="section-title">Projetos</h2>
             </header>
-            <div class="projects-list">
-                <article class="project-card">
-                    <header>
-                        <h3 class="project-title"><i class="fa-solid fa-laptop-code"></i> Dashboard Para Gerenciamento Financeiro</h3>
-                    </header>
-                    <img src="projeto1.png" alt="projeto 1" class="project-image" />
-                    <p class="project-description">Tenha em mãos todos os seus gastos de forma visivel e mais detalhado!</p>
-                </article>
-                <article class="project-card">
-                    <header>
-                        <h3 class="project-title"><i class="fa-solid fa-laptop-code"></i> Portifólio Pessoal</h3>
-                    </header>
-                    <img src="projeto2.png" alt="projeto 2" class="project-image" />
-                    <p class="project-description">Um portfólio pessoal para mostrar minhas habilidades e projetos.</p>
-                </article>
+            <div id="projects-list" class="projects-list">
+                <!-- Gerado dinamicamente -->
             </div>
         </section>
     </main>
 
     <!-- Rodapé -->
     <footer id="contact" class="footer" aria-labelledby="contact-title">
-        <h2 id="contact-title" class="footer-title">Contato:</h2>
-        <form action="#" class="contact-form">
-            <div class="form-group">
-                <div class="input-icon">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="text" id="name" name="name" placeholder="Seu Nome" required />
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="input-icon">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="email" id="email" name="email" placeholder="Seu E-mail" required />
-                </div>
-            </div>
-
-            <div class="form-group">
-            <div class="input-icon textarea-icon">
-                <i class="fa-solid fa-comment-dots"></i>
-                <textarea id="message" name="message" rows="4" required placeholder="Escreva sua mensagem..."></textarea>
-            </div>
-            </div>
-
-
-            <button type="submit" class="form-button">
-                <i class="fa-solid fa-paper-plane"></i> Enviar
-            </button>
-        </form>
-
-        <p class="social-media"> Minhas redes sociais abaixo:</p>
+        <h2 id="contact-title" class="footer-title">Contato</h2>
+        
+        <p class="social-media">Minhas redes sociais:</p>
         <ul class="contact-list">
             <li>
                 <a href="https://github.com/jeandevzinweb" target="_blank" aria-label="GitHub">
@@ -130,13 +77,46 @@
                 </a>
             </li>
         </ul>
+
+        <div class="stats-container">
+            <span id="view-counter" data-tooltip="Visualizações"><i class="fa-solid fa-eye"></i> 0</span>
+            <span id="avg-rating" data-tooltip="Média de Avaliações"><i class="fa-solid fa-star"></i> 0</span>
+        </div>
+
         <small>
             &copy; 2025 <a href="#header">Jean Almeida</a> - All Rights Reserved.
         </small>
     </footer>
+
+    <!-- UX Research Modal -->
+    <div id="ux-modal" class="modal">
+        <div class="modal-content">
+            <h3>Sua opinião é importante!</h3>
+            <p>Como você avalia este portfólio?</p>
+            <div class="star-rating">
+                <i class="fa-regular fa-star" data-value="1"></i>
+                <i class="fa-regular fa-star" data-value="2"></i>
+                <i class="fa-regular fa-star" data-value="3"></i>
+                <i class="fa-regular fa-star" data-value="4"></i>
+                <i class="fa-regular fa-star" data-value="5"></i>
+            </div>
+            <button id="submit-rating" class="form-button">Avaliar</button>
+        </div>
+    </div>
+
     <a href="#header" class="back-to-top" aria-label="Voltar ao topo">
+        <svg class="progress-circle" width="48" height="48" viewBox="0 0 48 48">
+            <circle class="progress-background" cx="24" cy="24" r="22" stroke-width="3" fill="none" />
+            <circle class="progress-bar" cx="24" cy="24" r="22" stroke-width="3" fill="none" />
+        </svg>
         <i class="fa-solid fa-arrow-up"></i>
     </a>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <h4>OBRIGADO!</h4>
+        <p>Agradecemos imensamente pela sua avaliação e por nos ajudar a melhorar.</p>
+    </div>
 </body>
 
 </html>
