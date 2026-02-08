@@ -151,6 +151,42 @@ header.scrolled .nav-link {
     padding-top: 120px;
 }
 
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem 5%;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-full {
+        display: none !important;
+    }
+
+    .logo-short {
+        display: inline-block !important;
+        color: var(--primary);
+    }
+
+    .nav-list {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.85rem;
+    }
+
+    .about-section {
+        padding-top: 80px;
+    }
+
+    .profile-image {
+        margin-top: 0;
+    }
+}
+
 .section {
     min-height: 100vh;
     padding: clamp(2rem, 8vw, 6rem) clamp(1rem, 5vw, 2rem);
