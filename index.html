@@ -26,80 +26,98 @@
                 <li><a href="#projects" class="nav-link">Projetos</a></li>
                 <li><a href="#contact" class="nav-link">Contato</a></li>
             </ul>
+            <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
+                <span></span><span></span>
+            </button>
         </nav>
+        <div id="primary-navigation" class="mobile-navigation" aria-hidden="true">
+            <a href="#about" class="nav-link">Sobre</a>
+            <a href="#projects" class="nav-link">Projetos</a>
+            <a href="#contact" class="nav-link">Contato</a>
+        </div>
     </header>
 
     <main id="main-content">
-        <section id="about" class="section about-section" aria-labelledby="about-title">
-            <img src="profile.webp" alt="imagem de Jean Almeida" class="profile-image" />
-            <p class="section-description">
-                Olá, eu sou o <strong>Jean Almeida</strong>. Um Desenvolvedor Web movido pela paixão de transformar ideias em experiências digitais excepcionais. 
-                Meu foco é o <strong>Frontend</strong>, onde combino design e performance para construir interfaces altamente intuitivas, fluidas e totalmente centradas no usuário. 
-                Acredito que uma ótima experiência é aquela que encanta e facilita a vida de quem a utiliza.
-                <br><br>
-                Confira abaixo minha trajetória acadêmica:
-            </p>
-            <table id="courses-table">
-                <thead>
-                    <tr>
-                        <th>Curso</th>
-                        <th>Instituição</th>
-                        <th>Ano</th>
-                    </tr>
-                </thead>
-                <tbody id="courses-list">
-                </tbody>
-            </table>
+        <section id="about" class="section cinematic-section about-section" aria-label="Sobre mim">
+            <div class="section-grid" aria-hidden="true"></div>
+            <div class="section-aurora section-aurora-one" aria-hidden="true"></div>
+            <div class="section-wordmark" data-parallax="0.08" aria-hidden="true">ABOUT US</div>
+            <div class="about-layout">
+                <div class="about-visual">
+                    <img src="profile.webp" alt="Foto de Jean Almeida" class="profile-image" />
+                </div>
+                <div class="about-content">
+                    <div class="about-heading-row">
+                        <h2 id="about-title" class="about-title">Jean Almeida<span>.</span></h2>
+                    </div>
+                    <span class="about-rule" aria-hidden="true"></span>
+                    <div class="academic-marquee" aria-label="Trajetória acadêmica de Jean Almeida">
+                        <div id="academic-marquee-track" class="academic-marquee-track"></div>
+                    </div>
+                    <p class="section-description">
+                        Sou <strong>Jean Almeida</strong>, um entusiasta por programação e por tudo que envolve criar na web.
+                        Gosto de transformar ideias em interfaces bonitas, funcionais e fáceis de usar. Meu foco é o <strong>Frontend</strong>,
+                        onde misturo código, design e performance para construir experiências digitais que façam sentido para as pessoas.
+                        Ainda estou evoluindo todos os dias, estudando, testando ideias e colocando novos projetos em prática.
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <section id="projects" class="section projects-section" aria-labelledby="projects-title">
+        <section id="projects" class="section cinematic-section projects-section" aria-labelledby="projects-title">
+            <div class="section-grid" aria-hidden="true"></div>
+            <div class="section-aurora section-aurora-two" aria-hidden="true"></div>
+            <div class="section-wordmark" data-parallax="0.08" aria-hidden="true">PROJETOS</div>
             <header>
-                <h2 id="projects-title" class="section-title">Projetos</h2>
+                <h2 id="projects-title" class="section-title footer-title projects-title">Projetos<span>.</span></h2>
             </header>
-            <div id="projects-list" class="projects-list">
+            <div class="projects-carousel" tabindex="0" aria-roledescription="carrossel" aria-label="Carrossel de projetos">
+                <button class="carousel-control carousel-prev" type="button" aria-label="Ver projeto anterior">
+                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                </button>
+                <div id="projects-list" class="projects-list" aria-live="polite"></div>
+                <button class="carousel-control carousel-next" type="button" aria-label="Ver próximo projeto">
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </button>
             </div>
+            <p class="projects-hint" aria-hidden="true"><i class="fa-solid fa-hand-pointer"></i><span>Arraste para explorar</span></p>
+            <div class="carousel-indicators" role="tablist" aria-label="Selecionar projeto"></div>
         </section>
     </main>
 
-    <footer id="contact" class="footer" aria-labelledby="contact-title">
-        <h2 id="contact-title" class="footer-title">Contato</h2>
-        <ul class="contact-list">
-            <li>
-                <a href="https://github.com/jeandevzinweb" target="_blank" aria-label="GitHub">
-                    <i class="fab fa-github" style="font-size:24px; vertical-align:middle;"></i>
-                </a>
-            </li>
-            <li>
-                <a href="https://instagram.com/jean_almeidaa7" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram" style="font-size:24px; vertical-align:middle;"></i>
-                </a>
-            </li>
-        </ul>
+    <footer id="contact" class="footer cinematic-footer" aria-labelledby="contact-title">
+        <div class="footer-grid" aria-hidden="true"></div>
+        <div class="footer-aurora footer-aurora-one" aria-hidden="true"></div>
+        <div class="footer-aurora footer-aurora-two" aria-hidden="true"></div>
+        <div class="footer-wordmark" data-parallax="0.16" aria-hidden="true">CONTATO</div>
 
-        <div class="stats-container">
-            <span id="view-counter" data-tooltip="Visualizações"><i class="fa-solid fa-eye"></i> 0</span>
-            <span id="avg-rating" data-tooltip="Média de Avaliações"><i class="fa-solid fa-star"></i> 0</span>
-        </div>
-
-        <small>
-            &copy; 2026 <a href="#header">Jean Almeida</a> - All Rights Reserved.
-        </small>
-    </footer>
-
-    <div id="ux-modal" class="modal">
-        <div class="modal-content">
-            <h3>Sua opinião é importante!</h3>
-            <p>Como você avalia este portfólio?</p>
-            <div class="star-rating">
-                <i class="fa-regular fa-star" data-value="1"></i>
-                <i class="fa-regular fa-star" data-value="2"></i>
-                <i class="fa-regular fa-star" data-value="3"></i>
-                <i class="fa-regular fa-star" data-value="4"></i>
-                <i class="fa-regular fa-star" data-value="5"></i>
+        <div class="footer-marquee" aria-label="Especialidades de Jean Almeida">
+            <div class="footer-marquee-track">
+                <span>DESENVOLVIMENTO FRONTEND</span><b>✦</b><span>EXPERIÊNCIAS DIGITAIS</span><b>✦</b><span>DESIGN UX/UI</span><b>✦</b><span>PERFORMANCE WEB</span><b>✦</b>
+                <span>DESENVOLVIMENTO FRONTEND</span><b>✦</b><span>EXPERIÊNCIAS DIGITAIS</span><b>✦</b><span>DESIGN UX/UI</span><b>✦</b><span>PERFORMANCE WEB</span><b>✦</b>
             </div>
-            <button id="submit-rating" class="form-button">Avaliar</button>
         </div>
-    </div>
+
+        <div class="footer-content">
+            <div class="footer-intro footer-reveal">
+                <div class="footer-heading-row">
+                    <h2 id="contact-title" class="footer-title">Contato<span>.</span></h2>
+                </div>
+                <p class="footer-copy">Tem uma ideia em mente? Precisa de um portfólio ou de uma landing page? Entre em contato comigo, vamos conversar sobre o seu projeto e fazer um orçamento.</p>
+                <a class="footer-action magnetic" href="https://instagram.com/jean_almeidaa7" target="_blank" rel="noreferrer">
+                    <span>Siga-me no Instagram</span><i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom footer-reveal">
+                <ul class="contact-list">
+                    <li><a class="magnetic" href="https://github.com/jeandevzinweb" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></a></li>
+                    <li><a class="magnetic" href="https://instagram.com/jean_almeidaa7" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i><span>Instagram</span></a></li>
+                </ul>
+                <small>&copy; 2026 <a href="#header">Jean Almeida</a> - All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
 
     <a href="#header" class="back-to-top" aria-label="Voltar ao topo">
         <svg class="progress-circle" width="48" height="48" viewBox="0 0 48 48">
@@ -109,10 +127,6 @@
         <i class="fa-solid fa-arrow-up"></i>
     </a>
 
-    <div id="toast" class="toast">
-        <h4>OBRIGADO!</h4>
-        <p>Agradeço imensamente pela sua avaliação ela é muito importante para o meu crescimento.</p>
-    </div>
 </body>
 
 </html>
