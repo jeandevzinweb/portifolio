@@ -12,6 +12,57 @@ window.addEventListener('DOMContentLoaded', () => {
         header?.classList.toggle('scrolled', window.scrollY > 10);
     }
 
+    function updatePointerGlow(event) {
+        const x = (event.clientX / window.innerWidth) * 100;
+        const y = (event.clientY / window.innerHeight) * 100;
+        document.body.style.setProperty('--pointer-x', `${x}%`);
+        document.body.style.setProperty('--pointer-y', `${y}%`);
+    }
+
+    window.addEventListener('pointermove', updatePointerGlow, { passive: true });
+    window.addEventListener('pointerleave', () => {
+        document.body.style.setProperty('--pointer-x', '50%');
+        document.body.style.setProperty('--pointer-y', '50%');
+    });
+
+    if (!reduceMotion && window.anime) {
+        anime.timeline({ easing: 'easeOutExpo', duration: 850 })
+            .add({ targets: '.nav-logo', opacity: [0, 1], translateY: [-16, 0] })
+            .add({ targets: '.nav-list .nav-link', opacity: [0, 1], translateY: [-12, 0], delay: anime.stagger(90) }, '-=560');
+
+        anime({
+            targets: ['.about-visual', '.about-content'],
+            opacity: [0, 1],
+            translateY: [34, 0],
+            delay: anime.stagger(140),
+            duration: 1050,
+            easing: 'easeOutCubic'
+        });
+
+        const animatedSections = document.querySelectorAll('.projects-section, .cinematic-footer');
+        const animationObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+
+                const targets = entry.target.matches('.projects-section')
+                    ? entry.target.querySelectorAll('.projects-title, .projects-carousel, .projects-hint, .carousel-indicators')
+                    : entry.target.querySelectorAll('.footer-intro, .footer-bottom');
+
+                anime({
+                    targets,
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    delay: anime.stagger(120),
+                    duration: 900,
+                    easing: 'easeOutCubic'
+                });
+                animationObserver.unobserve(entry.target);
+            });
+        }, { threshold: 0.22 });
+
+        animatedSections.forEach(section => animationObserver.observe(section));
+    }
+
     window.addEventListener('scroll', () => {
         if (!headerFrame) headerFrame = requestAnimationFrame(updateHeaderState);
     }, { passive: true });
@@ -95,6 +146,20 @@ window.addEventListener('DOMContentLoaded', () => {
             `;
         }
 
+        function animateActiveProject(card) {
+            if (reduceMotion || !window.anime) return;
+            const content = card.querySelectorAll('header, .project-image, .project-description');
+            anime.remove(content);
+            anime({
+                targets: content,
+                opacity: [0, 1],
+                translateY: [18, 0],
+                delay: anime.stagger(100),
+                duration: 650,
+                easing: 'easeOutCubic'
+            });
+        }
+
         function updateCarousel(nextIndex, shouldRestart = true) {
             activeProject = (nextIndex + projects.length) % projects.length;
             cards.forEach(card => { card.style.transform = ''; });
@@ -115,6 +180,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 indicator.classList.toggle('is-active', isActive);
                 indicator.setAttribute('aria-selected', String(isActive));
             });
+
+            animateActiveProject(cards.find(card => card.classList.contains('is-active')));
 
             if (shouldRestart) startAutoplay();
         }
